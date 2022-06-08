@@ -1,2 +1,2 @@
 #!/bin/bash
-curl -X DELETE localhost:8080/product-composite/100
+curl -X DELETE localhost:8080/product-composite/10000
