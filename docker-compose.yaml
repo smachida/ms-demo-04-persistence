@@ -47,8 +47,9 @@ services:
 
   # $ mongo
   mongodb_product:
-    image: mongo:3.6.9
-    platform: linux/amd64
+    #image: mongo:3.6.9
+    image: mongo
+    #platform: linux/amd64
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: mongo
@@ -56,14 +57,15 @@ services:
       TZ: Asia/Tokyo
     ports:
       - "27017:27017"
-    command: mongod --smallfiles
+    #command: mongod --smallfiles
     volumes:
       - ./initdb-mongo-product.d:/docker-entrypoint-initdb.d
 
   # $ mongo
   mongodb_recommendation:
-    image: mongo:3.6.9
-    platform: linux/amd64
+    #image: mongo:3.6.9
+    image: mongo
+    #platform: linux/amd64
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: mongo
@@ -71,7 +73,7 @@ services:
       TZ: Asia/Tokyo
     ports:
       - "27018:27017"
-    command: mongod --smallfiles
+    #command: mongod --smallfiles
     volumes:
       - ./initdb-mongo-recommendation.d:/docker-entrypoint-initdb.d
 
