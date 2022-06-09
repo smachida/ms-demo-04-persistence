@@ -3,7 +3,6 @@ version: '2.1'
 services:
   product:
     image: ms-demo-04-persistence-product-service:latest
-    platform: linux/amd64
     ports:
       - "8081:8080"
     environment:
@@ -13,7 +12,6 @@ services:
 
   recommendation:
     image: ms-demo-04-persistence-recommendation-service:latest
-    platform: linux/amd64
     ports:
       - "8082:8080"
     environment:
@@ -23,7 +21,6 @@ services:
 
   review:
     image: ms-demo-04-persistence-review-service:latest
-    platform: linux/amd64
     ports:
       - "8083:8080"
     environment:
@@ -34,7 +31,6 @@ services:
 
   product-composite:
     image: ms-demo-04-persistence-product-composite-service:latest
-    platform: linux/amd64
     ports:
       - "8080:8080"
     environment:
@@ -42,14 +38,11 @@ services:
 
   workstation:
     image: openjdk:latest
-    platform: linux/amd64
     tty: true
 
   # $ mongo
   mongodb_product:
-    #image: mongo:3.6.9
     image: mongo
-    #platform: linux/amd64
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: mongo
@@ -63,9 +56,7 @@ services:
 
   # $ mongo
   mongodb_recommendation:
-    #image: mongo:3.6.9
     image: mongo
-    #platform: linux/amd64
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: mongo
@@ -79,8 +70,8 @@ services:
 
   # $ mysql -uroot -h127.0.0.1 -p
   mysql:
-    image: mysql/mysql-server:5.7.23
-    platform: linux/amd64
+    #image: mysql/mysql-server:5.7.23
+    image: mysql/mysql-server
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     ports:
       - "13306:3306"
